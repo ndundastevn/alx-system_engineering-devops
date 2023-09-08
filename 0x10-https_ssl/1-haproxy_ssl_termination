@@ -7,8 +7,6 @@ global
         user haproxy
         group haproxy
         daemon
-
-        # Default SSL material locations
         ca-base /etc/ssl/certs
         crt-base /etc/ssl/private
 
@@ -31,7 +29,7 @@ defaults
 frontend  ndundastevn-frontend
         bind *:80
         mode http
-        bind *:443 ssl crt /etc/haproxy/certs/www.ollyjhay.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.ndundastevn.tech
         redirect scheme https if !{ ssl_fc }
         default_backend ndundastevn-backend
 backend ndundastevn-backend
